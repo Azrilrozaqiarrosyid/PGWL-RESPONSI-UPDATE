@@ -198,5 +198,73 @@
                 }
                 drawnItems.addLayer(layer);
             });
+
+            /* GeoJSON Point */
+			var point = L.geoJson(null, {
+				onEachFeature: function (feature, layer) {
+					var popupContent = "Nama: " + feature.properties.name + "<br>" +
+						"Deskripsi: " + feature.properties.description;
+					layer.on({
+						click: function (e) {
+							point.bindPopup(popupContent);
+						},
+						mouseover: function (e) {
+							point.bindTooltip(feature.properties.name);
+						},
+					});
+				},
+			});
+			$.getJSON("{{ route('api.points') }}", function (data) {
+				point.addData(data);
+				map.addLayer(point);
+			});
+
+            /* GeoJSON Polyline*/
+			var polyline = L.geoJson(null, {
+				onEachFeature: function (feature, layer) {
+					var popupContent = "Nama: " + feature.properties.name + "<br>" +
+						"Deskripsi: " + feature.properties.description;
+					layer.on({
+						click: function (e) {
+							polyline.bindPopup(popupContent);
+						},
+						mouseover: function (e) {
+							polyline.bindTooltip(feature.properties.name);
+						},
+					});
+				},
+			});
+			$.getJSON("{{ route('api.polyline') }}", function (data) {
+				polyline.addData(data);
+				map.addLayer(polyline);
+			});
+
+            /* GeoJSON Polygon*/
+			var polygon = L.geoJson(null, {
+				onEachFeature: function (feature, layer) {
+					var popupContent = "Nama: " + feature.properties.name + "<br>" +
+						"Deskripsi: " + feature.properties.description;
+					layer.on({
+						click: function (e) {
+							polygon.bindPopup(popupContent);
+						},
+						mouseover: function (e) {
+							polygon.bindTooltip(feature.properties.name);
+						},
+					});
+				},
+			});
+			$.getJSON("{{ route('api.polygon') }}", function (data) {
+				polygon.addData(data);
+				map.addLayer(polygon);
+			});
+
+            // layer control
+            var overlayMaps = {
+                "Point": point,
+                "Polyline": polyline,
+                "Polygon": polygon
+            };
+            var layerControl = L.control.layers(null, overlayMaps, {collapsed: false}).addTo(map);
         </script>
 @endsection
