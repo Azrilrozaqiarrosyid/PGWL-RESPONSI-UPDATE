@@ -12,15 +12,18 @@ class Points extends Model
 
     protected $table = 'table_point';
 
-    protected $fillable = [
-        'name',
-        'description',
-        'geom'
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'description',
+    //     'geom',
+    //     'image',
+    // ];
+
+    protected $guarded = ['id'];
 
     public function points()
     {
-        return $this->select(DB::raw('id, name, description, ST_AsGeoJSON(geom) as geom, created_at,
+        return $this->select(DB::raw('id, name, description, image, ST_AsGeoJSON(geom) as geom, created_at,
         updated_at'))->get();
     }
 }

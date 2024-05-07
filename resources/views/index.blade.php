@@ -33,7 +33,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{route('store-point') }}" method="POST">
+                        <form action="{{route('store-point') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="Name" class="form-label">Name</label>
@@ -47,6 +47,10 @@
                             <div class="mb-3">
                                 <label for="geom" class="form-label">Geometry</label>
                                 <textarea class="form-control" id="geom_Point" name="geom" rows="3" readonly></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" class="form-control" id="image_point" name="image"></input>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -68,7 +72,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{route('store-polyline')}}" method="POST">
+                        <form action="{{route('store-polyline') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="Name" class="form-label">Name</label>
@@ -82,6 +86,10 @@
                             <div class="mb-3">
                                 <label for="geom" class="form-label">Geometry</label>
                                 <textarea class="form-control" id="geom_Polyline" name="geom" rows="3" readonly></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" class="form-control" id="image_polyline" name="image"></input>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -103,7 +111,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{route('store-polygon')}}" method="POST">
+                        <form action="{{route('store-polygon') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="Name" class="form-label">Name</label>
@@ -117,6 +125,10 @@
                             <div class="mb-3">
                                 <label for="geom" class="form-label">Geometry</label>
                                 <textarea class="form-control" id="geom_Polygon" name="geom" rows="3" readonly></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image</label>
+                                <input type="file" class="form-control" id="image_polygon" name="image"></input>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -203,7 +215,10 @@
 			var point = L.geoJson(null, {
 				onEachFeature: function (feature, layer) {
 					var popupContent = "Nama: " + feature.properties.name + "<br>" +
-						"Deskripsi: " + feature.properties.description;
+						"Deskripsi: " + feature.properties.description + "<br>" +
+                        "Foto: <img src='{{ asset('storage/images/') }}/" + feature.properties.image +
+                        "' class='img-thumbnail' alt='...'>";
+
 					layer.on({
 						click: function (e) {
 							point.bindPopup(popupContent);
@@ -223,7 +238,10 @@
 			var polyline = L.geoJson(null, {
 				onEachFeature: function (feature, layer) {
 					var popupContent = "Nama: " + feature.properties.name + "<br>" +
-						"Deskripsi: " + feature.properties.description;
+						"Deskripsi: " + feature.properties.description + "<br>" +
+                        "Foto: <img src='{{ asset('storage/images/') }}/" + feature.properties.image +
+                        "' class='img-thumbnail' alt='...'>";
+
 					layer.on({
 						click: function (e) {
 							polyline.bindPopup(popupContent);
@@ -243,7 +261,10 @@
 			var polygon = L.geoJson(null, {
 				onEachFeature: function (feature, layer) {
 					var popupContent = "Nama: " + feature.properties.name + "<br>" +
-						"Deskripsi: " + feature.properties.description;
+						"Deskripsi: " + feature.properties.description + "<br>" +
+                        "Foto: <img src='{{ asset('storage/images/') }}/" + feature.properties.image +
+                        "' class='img-thumbnail' alt='...'>";
+
 					layer.on({
 						click: function (e) {
 							polygon.bindPopup(popupContent);
