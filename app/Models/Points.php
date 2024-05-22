@@ -26,4 +26,9 @@ class Points extends Model
         return $this->select(DB::raw('id, name, description, image, ST_AsGeoJSON(geom) as geom, created_at,
         updated_at'))->get();
     }
+    public function point($id)
+    {
+        return $this->select(DB::raw('id, name, description, image, ST_AsGeoJSON(geom) as geom, created_at,
+        updated_at'))->where('id', $id)->get();
+    }
 }

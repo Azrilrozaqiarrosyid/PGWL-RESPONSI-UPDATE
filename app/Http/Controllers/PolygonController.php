@@ -23,6 +23,7 @@ class PolygonController extends Controller
                 'type' => 'Feature',
                 'geometry' => json_decode($p->geom),
                 'properties' => [
+                    'id' => $p->id,
                     'name' => $p->name,
                     'description' => $p->description,
                     'image' => $p->image,
@@ -123,6 +124,20 @@ class PolygonController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // get image
+        $image = $this->polygon->find($id)->image;
+
+        // delete image
+        if ($image != null) {
+                unlink('storage/images/' . $image);
+            }
+
+        // delete polygon
+        if (!$this->polygon->destroy($id)) {
+            return redirect()->back()->with('error', 'Failed to delete polygon');
+        }
+
+        //redirect to map
+        return redirect()->back() ->with('success', 'Polygon deleted successfully');
     }
 }

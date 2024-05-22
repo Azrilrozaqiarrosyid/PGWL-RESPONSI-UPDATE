@@ -23,6 +23,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // GeoJSON Point
 Route::get('/points', [PointController::class, 'index'])->name('api.points');
+// GeoJSON Point edit
+Route::get('/point/{id}', [PointController::class, 'show'])->name('api.point');
+
 // GeoJSON Polyline
 Route::get('/polylines', [PolylineController::class, 'index'])->name('api.polyline');
 // GeoJSON Polygon

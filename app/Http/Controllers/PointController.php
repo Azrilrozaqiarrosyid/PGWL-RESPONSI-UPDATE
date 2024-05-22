@@ -26,6 +26,7 @@ class PointController extends Controller
                 'type' => 'Feature',
                 'geometry' => json_decode($p->geom),
                 'properties' => [
+                    'id' => $p->id,
                     'name' => $p->name,
                     'description' => $p->description,
                     'image' => $p->image,
@@ -102,7 +103,27 @@ class PointController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $point = $this->point->point($id);
+
+        foreach ($point as $p) {
+            $feature[] = [
+                'type' => 'Feature',
+                'geometry' => json_decode($p->geom),
+                'properties' => [
+                    'id' => $p->id,
+                    'name' => $p->name,
+                    'description' => $p->description,
+                    'image' => $p->image,
+                    'created_at' => $p->created_at,
+                    'updated_at' => $p->updated_at
+                ]
+            ];
+        }
+
+        return response()->json([
+            'type' => 'FeatureCollection',
+            'features' => $feature,
+        ]);
     }
 
     /**
@@ -110,7 +131,14 @@ class PointController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $points = $this->point->find($id);
+
+        $data = [
+            'title' => 'Edit Point',
+            'points' => $points,
+            'id' => $id
+        ];
+        return view('edit-point', $data);
     }
 
     /**
@@ -126,6 +154,31 @@ class PointController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // get image
+        $image = $this->point->find($id)->image;
+
+        // delete image
+        if ($image != null) {
+                unlink('storage/images/' . $image);
+            }
+
+        // delete point
+        if (!$this->point->destroy($id)) {
+            return redirect()->back()->with('error', 'Failed to delete point');
+        }
+
+        //redirect to map
+        return redirect()->back() ->with('success', 'Point deleted successfully');
     }
+
+    public function table()
+    {
+        $points = $this->point->points();
+        $data = [
+            'title' => 'Table Point',
+            'points' => $points
+        ];
+        return view('table-point', $data);
+    }
+
 }
