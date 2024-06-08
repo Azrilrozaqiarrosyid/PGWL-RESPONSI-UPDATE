@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PolylineController;
 use App\Http\Controllers\PolygonController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ Route::post('/store-point', [PointController::class, 'store'])-> name('store-poi
 Route::delete('/delete-point/{id}', [PointController::class, 'destroy'])->name('delete-point');
 // edit point
 Route::get('/edit-point/{id}', [PointController::class, 'edit'])->name('edit-point');
+// update point
+Route::patch('/update-point/{id}', [PointController::class, 'update'])->name('update-point');
 
 // create polyline
 Route::post('/store-polyline', [PolylineController::class, 'store'])->name('store-polyline');
@@ -34,6 +37,8 @@ Route::post('/store-polyline', [PolylineController::class, 'store'])->name('stor
 Route::delete('/delete-polyline/{id}', [PolylineController::class, 'destroy'])->name('delete-polyline');
 // edit polyline
 Route::get('/edit-polyline/{id}', [PolylineController::class, 'edit'])->name('edit-polyline');
+// update polyline
+Route::patch('/update-polyline/{id}', [PolylineController::class, 'update'])->name('update-polyline');
 
 // create polygon
 Route::post('/store-polygon', [PolygonController::class, 'store'])-> name('store-polygon');
@@ -41,14 +46,14 @@ Route::post('/store-polygon', [PolygonController::class, 'store'])-> name('store
 Route::delete('/delete-polygon/{id}', [PolygonController::class, 'destroy'])->name('delete-polygon');
 // edit polygon
 Route::get('/edit-polygon/{id}', [PolygonController::class, 'edit'])->name('edit-polygon');
+// update polygon
+Route::patch('/update-polygon/{id}', [PolygonController::class, 'update'])->name('update-polygon');
 
 Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

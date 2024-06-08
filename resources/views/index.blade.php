@@ -299,7 +299,7 @@
                 });
             },
         });
-        $.getJSON("{{ route('api.polyline') }}", function(data) {
+        $.getJSON("{{ route('api.polylines') }}", function(data) {
             polyline.addData(data);
             map.addLayer(polyline);
         });
@@ -337,7 +337,7 @@
                 });
             },
         });
-        $.getJSON("{{ route('api.polygon') }}", function(data) {
+        $.getJSON("{{ route('api.polygons') }}", function(data) {
             polygon.addData(data);
             map.addLayer(polygon);
         });
