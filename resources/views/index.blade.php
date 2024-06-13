@@ -497,7 +497,7 @@ $.getJSON("{{ route('api.points') }}", function(data) {
         var polygon = L.geoJson(null, {
             onEachFeature: function(feature, layer) {
             var popupContent = 
-            "<div style='background-color: #ADD8E6; color: #2c3e50; padding: 2px; border-radius: 5px;'>" +
+            "<div style='background-color: #F0F8FF; color: #2c3e50; padding: 2px; border-radius: 5px;'>" +
                 "<table style='width: 100%; border-collapse: collapse;'>" +
                     "<tr>" +
                         "<td style='font-weight: bold; padding: 5px; border-bottom: 1px solid #ddd;'>Pelapor</td>" +

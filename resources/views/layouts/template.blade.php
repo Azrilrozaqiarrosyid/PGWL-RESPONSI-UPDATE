@@ -114,7 +114,7 @@
 
     {{-- <script>
         // map
-        var map = L.map('map').setView([-7.102344039389437, 112.40844745799747], 10);
+        var map = L.map('map').setView([-7.102344039389437, 112.40844745799747], 11);
 
         //basemap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

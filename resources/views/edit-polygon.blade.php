@@ -206,7 +206,7 @@
         $.getJSON("{{ route('api.polygon', $id) }}", function(data) {
             polygon.addData(data);
             map.addLayer(polygon);
-            map.fitBounds(polygon.getBounds());
+            map.fitBounds(polygon.getBounds()); //berfungsi untuk melakukan penambahan k\layer
         });
     </script>
 @endsection
