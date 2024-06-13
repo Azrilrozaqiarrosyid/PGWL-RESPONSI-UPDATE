@@ -89,12 +89,12 @@ Website ini dibangun oleh beberapa komponen:
 9. Leaflet --> library untuk menampilkan webmap
 
 Aplikasi Pendukung:
-11. DBeaver --> Aplikasi untuk mengakses berbagai basis data dan melakukan monitoring hingga pengubahan database yang dipilih
-12. PostgreSQL --> DBMS untuk melakukan pembuatan database dan penyimpanan data
-13. Geoserver --> perangkat lunak mapserver yang open source ditulis di dalam bahasa pemrograman JAVA yang memungkinkan pengguna untuk berbagi dan mengedit data geospatial
-14. QGIS --> Perangkat GIS open-source yang dapat digunakan untuk mengelola data spasial
-15. PostGIS --> Ekstensi untuk menghubungkan postgreSQL dengan QGIS dalam hal penyambungan database spasial
-16. Visual Studio Code --> Aplikasi code editor untuk pengembangan aplikasi/website
+1. DBeaver --> Aplikasi untuk mengakses berbagai basis data dan melakukan monitoring hingga pengubahan database yang dipilih
+2. PostgreSQL --> DBMS untuk melakukan pembuatan database dan penyimpanan data
+3. Geoserver --> perangkat lunak mapserver yang open source ditulis di dalam bahasa pemrograman JAVA yang memungkinkan pengguna untuk berbagi dan mengedit data geospatial
+4. QGIS --> Perangkat GIS open-source yang dapat digunakan untuk mengelola data spasial
+5. PostGIS --> Ekstensi untuk menghubungkan postgreSQL dengan QGIS dalam hal penyambungan database spasial
+6. Visual Studio Code --> Aplikasi code editor untuk pengembangan aplikasi/website
 ___
 __Tangkapan layar komponen penting__
 ___
