@@ -70,7 +70,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ___
 __CIVICTRACS (Civil Infrastructure Tracking and Monitoring System)__
 ___
-__Deskripsi Project__
+## Deskripsi Project
 ___
 CIVICTRACS merupakan website berbasis GIS yang dapat digunakan untuk melakukan pelaporan pada kerusakan penerangan jalan umum (PJU), jalan, serta bangunan milik pemerintah daerah. 
 Website ini dibangun berdasarkan masih banyaknya kasus kerusakan 3 hal tersebut yang tidak kunjung ditangai serta kurang efektifnya jika tidak adanya suatu sistem yang mampu melakukan perekaman data secara kolektif. Melalui webgis ini, konsep yang ditawarkan adalah administrator melakukan pelaporan dengan mengisi formulir data serta melakukan tag untuk titik pelaporannya. hasil ini kemudian disimpan di database PostgreSQL yang kompilasi datanya dapat ditampilkan di WebGIS tersebut. Dari pengumpulan data tersebut, harapannya terdapat pengembangan lanjutan yang mana terdapat administrator utama yang dapat memantau hasil pelaporan dari administrator kecil yang mengisi form.
@@ -96,7 +96,11 @@ Aplikasi Pendukung:
 5. PostGIS --> Ekstensi untuk menghubungkan postgreSQL dengan QGIS dalam hal penyambungan database spasial
 6. Visual Studio Code --> Aplikasi code editor untuk pengembangan aplikasi/website
 ___
-__Tangkapan layar komponen penting__
+## Sumber data
+___
+1. Data partisipatif yang diambil dari sosial media seperti facebook dan instagram mengenai keluhan masyarakat tentang kasus yang diangkat
+2. Data kolektif didapat dari data milik Pemerintah Kabupaten Lamongan, Dinas Pekerjaan Umum dan Bina Marga Kabupaten Lamongan, serta Dinas Perhubungan Kabupaten Lamongan
+## Tangkapan layar komponen penting
 ___
 _Halaman landing_
 ___
