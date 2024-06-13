@@ -20,7 +20,7 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-map-location-dot"></i> {{$title}}</a>
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-road-bridge"></i> {{$title}}</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,22 +30,14 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('index') }}"><i class="fa-solid fa-house-user"></i> Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Table
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('table-point') }}"><i 
-                                        class="fa-solid fa-table"></i> Table 
-                                    Point</a></li>
-                            <li><a class="dropdown-item" href="{{ route('table-polyline') }}"><i
-                                        class="fa-solid fa-table"></i> Table
-                                    Polyline</a></li>
-                            <li><a class="dropdown-item" href="{{ route('table-polygon') }}"><i
-                                        class="fa-solid fa-table"></i> Table
-                                    Polygon</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('table-point') }}"><i class="fa-solid fa-location-pin"></i> Data PJU</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('table-polyline') }}"><i class="fa-solid fa-arrows-split-up-and-left"></i> Data Jalan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('table-polygon') }}"> <i class="fa-solid fa-building-flag"></i> Data Aset </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#infoModal"><i class="fa-solid fa-circle-info"></i> Info</a>
@@ -79,25 +71,26 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Info </h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">INFORMASI </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <table class="table table-sm">
             <tr>
-                <th>NAMA</th>
+                <th>CARA PENGGUNAAN</th>
                 <td> : </td>
-                <td>Azril</td>
+                <td>
+                    Pastikan anda telah masuk dengan akun yang sesuai. Pilih draw di bagian kiri, mulai gambar di titik yang diinginkan, kemudian isi keseluruhan data di form.
+                    Anda juga dapat melihat hasil titik yang anda gambar di menu Data serta di menu dashboard
+                </td>
             </tr>
             <tr>
-                <th>NIM</th>
+                <th>KETERANGAN</th>
                 <td> : </td>
-                <td>22/504560/SV/21660</td>
-            </tr>
-            <tr>
-                <th>KELAS</th>
-                <td> : </td>
-                <td>B</td>
+                <td>
+                    Website ini merupakan website uji coba. Segala sesuatu yang berkaitan dengan fitur atau penggunaan website ini dapat menghubungi kontak
+                    yang terdapat di bagian bawah menu dashboard
+                </td>
             </tr>
         </table>
       </div>
@@ -116,13 +109,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     {{-- JQUERY js --}}
-
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 
     {{-- <script>
         // map
-        var map = L.map('map').setView([-6.1753924, 106.8271528], 13);
+        var map = L.map('map').setView([-7.102344039389437, 112.40844745799747], 10);
 
         //basemap
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -130,10 +122,10 @@
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        //marker
-        L.marker([-6.1753924, 106.8271528]).addTo(map)
-            .bindPopup('Monas')
-            .openPopup();
+        // //marker
+        // L.marker([-7.02303, 112.43498]).addTo(map)
+        //     .bindPopup('Monas')
+        //     .openPopup();
     </script> --}}
 
     @include('components.toast')
@@ -141,3 +133,6 @@
     @yield('script')
 </body>
 </html>
+
+
+

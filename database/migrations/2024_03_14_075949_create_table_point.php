@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('table_point', function (Blueprint $table) {
             $table->id();
-            $table->String('name');
+            $table->String('name')->nullable();
+            $table->String('nomor')->nullable();
+            $table->String('jenis')->nullable();
+            $table->String('status')->nullable();
             $table->text('description')->nullable();
             $table->geometry('geom');
             $table->timestamps();

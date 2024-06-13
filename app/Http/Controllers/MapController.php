@@ -9,7 +9,7 @@ class MapController extends Controller
     public function index()
     {
         $data = [
-            "title" => "Petaku",
+            "title" => "CIVICTRACS",
         ];
 
         //cek if user login
@@ -24,7 +24,7 @@ class MapController extends Controller
     public function table()
     {
         $data = [
-            "title" => "Petaku",
+            "title" => "CIVICTRACS",
         ];
         return view('table', $data);
     }

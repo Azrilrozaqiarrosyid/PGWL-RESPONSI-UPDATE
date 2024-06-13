@@ -37,14 +37,42 @@
                         @csrf
                         @method('PATCH')
                         <div class="mb-3">
-                            <label for="Name" class="form-label">Name</label>
+                            <label for="Name" class="form-label">Nama Pelapor</label>
                             <input type="text" class="form-control" id="name" name="name"
                                 placeholder="Fill Polyline Name">
                         </div>
                         <div class="mb-3">
-                            <label for="description" class="form-label">Description</label>
+                            <label for="Nomor" class="form-label">Nomor Telepon</label>
+                            <input type="text" class="form-control" id="nomor" name="nomor"
+                                placeholder="Isi Nomor">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="Jenis" class="form-label">Kerusakan</label>
+                            <select class="form-select" aria-label="Default select example" id="jenis" name="jenis">
+                            <option selected>Pilih Kerusakan</option>
+                            <option value="Ringan">Ringan</option>
+                            <option value="Sedang">Sedang</option>
+                            <option value="Berat">Berat</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Status" class="form-label">Status Perbaikan</label>
+                            <select class="form-select" aria-label="Default select example" id="status" name="status">
+                            <option selected>Pilih</option>
+                            <option value="Baru Dilaporkan">Baru Dilaporkan</option>
+                            <option value="Telah Disurvei">Telah Disurvei</option>
+                            <option value="Proses Perbaikan">Proses Perbaikan</option>
+                            <option value="Selesai Diperbaiki">Selesai Diperbaiki</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Deskripsi Area dan Kerusakan </label>
                             <textarea class="form-control" id="description" name="description" rows="3"></textarea>
                         </div>
+
                         <div class="mb-3">
                             <label for="geom" class="form-label">Geometry</label>
                             <textarea class="form-control" id="geom_Polyline" name="geom" rows="3" readonly></textarea>
@@ -120,6 +148,9 @@
                 var wkt = Terraformer.geojsonToWKT(geojson.geometry);
 
                 $('#name').val(layers.feature.properties.name);
+                $('#nomor').val(layers.feature.properties.nomor);
+                $('#jenis').val(layers.feature.properties.jenis);
+                $('#status').val(layers.feature.properties.status);
                 $('#description').val(layers.feature.properties.description);
                 $('#geom_Polyline').val(wkt);
                 $('#image_old').val(layers.feature.properties.image);
@@ -136,10 +167,30 @@
                 //add polyline layer to drawItems
                 drawnItems.addLayer(layer);
 
-                var popupContent = "Nama: " + feature.properties.name + "<br>" +
-                    "Deskripsi: " + feature.properties.description + "<br>" +
-                    "Foto: <br><img src='{{ asset('storage/images/') }}/" + feature.properties.image +
-                    "'class='img-thumbnail' alt='200'>";
+                var popupContent = 
+            "<div style='background-color: #f0f8ff; color: #2c3e50; padding: 2px; border-radius: 5px;'>" +
+                "<table style='width: 100%; border-collapse: collapse;'>" +
+                    "<tr>" +
+                        "<td style='font-weight: bold; padding: 5px; border-bottom: 1px solid #ddd;'>Pelapor</td>" +
+                        "<td style='padding: 5px; border-bottom: 1px solid #ddd;'>" + feature.properties.name + "</td>" +
+                    "</tr>" +
+                    "<tr>" +
+                        "<td style='font-weight: bold; padding: 5px; border-bottom: 1px solid #ddd;'>Lokasi</td>" +
+                        "<td style='padding: 5px; border-bottom: 1px solid #ddd;'>" + feature.properties.nomor + "</td>" +
+                    "</tr>" +
+                    "<tr>" +
+                        "<td style='font-weight: bold; padding: 5px; border-bottom: 1px solid #ddd;'>Kerusakan</td>" +
+                        "<td style='padding: 5px; border-bottom: 1px solid #ddd;'>" + feature.properties.jenis + "</td>" +
+                    "</tr>" +
+                    "<tr>" +
+                        "<td style='font-weight: bold; padding: 5px; border-bottom: 1px solid #ddd;'>Status</td>" +
+                        "<td style='padding: 5px; border-bottom: 1px solid #ddd;'>" + feature.properties.status + "</td>" +
+                    "</tr>" +
+                "</table>" +
+
+                "<img src='{{ asset('storage/images/') }}/" + feature.properties.image +
+                    "'class='img-thumbnail' alt='...'>" + "<br>" +
+            "</div>";
 
                 layer.on({
                     click: function(e) {

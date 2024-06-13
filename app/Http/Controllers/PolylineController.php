@@ -28,6 +28,9 @@ class PolylineController extends Controller
                 'properties' => [
                     'id' => $p->id,
                     'name' => $p->name,
+                    'nomor' => $p->nomor,
+                    'jenis' => $p->jenis,
+                    'status' => $p->status,
                     'description' => $p->description,
                     'image' => $p->image,
                     'created_at' => $p->created_at,
@@ -84,6 +87,9 @@ class PolylineController extends Controller
 
         $data = [
             'name' => $request->name,
+            'nomor' => $request->nomor,
+            'jenis' => $request->jenis,
+            'status' => $request->status,
             'description' => $request->description,
             'geom' => $request->geom,
             'image' => $filename
@@ -113,6 +119,9 @@ class PolylineController extends Controller
                 'properties' => [
                     'id' => $p->id,
                     'name' => $p->name,
+                    'nomor' => $p->nomor,
+                    'jenis' => $p->jenis,
+                    'status' => $p->status,
                     'description' => $p->description,
                     'image' => $p->image,
                     'created_at' => $p->created_at,
@@ -150,6 +159,9 @@ class PolylineController extends Controller
         //validate data
         $request->validate([
             'name' => 'required',
+            'nomor' => 'required',
+            'jenis' => 'required',
+            'status' => 'required',
             'geom' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:10000' // 10MB
         ],
@@ -183,6 +195,9 @@ class PolylineController extends Controller
         
         $data = [
             'name' => $request->name,
+            'nomor' => $request->nomor,
+            'jenis' => $request->jenis,
+            'status' => $request->status,
             'description' => $request->description,
             'geom' => $request->geom,
             'image' => $filename
@@ -223,7 +238,7 @@ class PolylineController extends Controller
     {
         $polylines = $this->polyline->polylines(); //terakhir lihat di modal
         $data = [
-            'title' => 'Table Polyline',
+            'title' => 'Data Kerusakan Jalan',
             'polylines' => $polylines
         ];
         return view('table-polyline', $data);

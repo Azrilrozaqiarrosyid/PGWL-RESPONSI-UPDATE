@@ -28,6 +28,9 @@ class PointController extends Controller
                 'properties' => [
                     'id' => $p->id,
                     'name' => $p->name,
+                    'nomor' => $p->nomor,
+                    'jenis' => $p->jenis,
+                    'status' => $p->status,
                     'description' => $p->description,
                     'image' => $p->image,
                     'created_at' => $p->created_at,
@@ -84,6 +87,9 @@ class PointController extends Controller
 
         $data = [
             'name' => $request->name,
+            'nomor' => $request->nomor,
+            'jenis' => $request->jenis,
+            'status' => $request->status,
             'description' => $request->description,
             'geom' => $request->geom,
             'image' => $filename
@@ -112,6 +118,9 @@ class PointController extends Controller
                 'properties' => [
                     'id' => $p->id,
                     'name' => $p->name,
+                    'nomor' => $p->nomor,
+                    'jenis' => $p->jenis,
+                    'status' => $p->status,
                     'description' => $p->description,
                     'image' => $p->image,
                     'created_at' => $p->created_at,
@@ -182,6 +191,9 @@ class PointController extends Controller
 
         $data = [
             'name' => $request->name,
+            'nomor' => $request->nomor,
+            'jenis' => $request->jenis,
+            'status' => $request->status,
             'description' => $request->description,
             'geom' => $request->geom,
             'image' => $filename
@@ -222,7 +234,7 @@ class PointController extends Controller
     {
         $points = $this->point->points();
         $data = [
-            'title' => 'Table Point',
+            'title' => 'Data Kerusakan PJU',
             'points' => $points
         ];
         return view('table-point', $data);
