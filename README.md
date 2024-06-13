@@ -65,3 +65,90 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 "# PGWL-RESPONSI" 
+
+## PROJECT RESPONSI PRAKTIKUM PEMROGRAMAN GEOSPASIAL WEB: LANJUT
+___
+__CIVICTRACS (Civil Infrastructure Tracking and Monitoring System)__
+___
+__Deskripsi Project__
+___
+CIVICTRACS merupakan website berbasis GIS yang dapat digunakan untuk melakukan pelaporan pada kerusakan penerangan jalan umum (PJU), jalan, serta bangunan milik pemerintah daerah. 
+Website ini dibangun berdasarkan masih banyaknya kasus kerusakan 3 hal tersebut yang tidak kunjung ditangai serta kurang efektifnya jika tidak adanya suatu sistem yang mampu melakukan perekaman data secara kolektif. Melalui webgis ini, konsep yang ditawarkan adalah administrator melakukan pelaporan dengan mengisi formulir data serta melakukan tag untuk titik pelaporannya. hasil ini kemudian disimpan di database PostgreSQL yang kompilasi datanya dapat ditampilkan di WebGIS tersebut. Dari pengumpulan data tersebut, harapannya terdapat pengembangan lanjutan yang mana terdapat administrator utama yang dapat memantau hasil pelaporan dari administrator kecil yang mengisi form.
+___
+__Komponen Pembangun__
+___
+Website ini dibangun oleh beberapa komponen:
+1. Laravel PHP --> framework PHP yang dapat digunakan untuk mengembangkan web yang berisi banyak modul. Terdiri dari konsep model-view-controller.
+2. HTML --> Bahasa pembangun utama untuk membangun sebuah Website
+3. CSS --> Bahasa pendukung untuk style dari website yang dibangun dan mengatur tampilan elemen
+4. PHP --> Bahasa pemrograman open-source yang dapat digunakan untuk membangun web menjadi lebih dinamis dan interaktif
+5. JavaScript --> Secara tidak langsung juga membantu membangun website menjadi lebih dinamis dan interaktif
+6. Boostrap --> Framework CSS untuk pengembangan front-end website
+7. FontAwesome --> Library font icon berbasis CSS
+8. DataTables --> Plugin JQuery untuk pengelolaan data dalam bentuk grid
+9. Leaflet --> library untuk menampilkan webmap
+
+Aplikasi Pendukung:
+11. DBeaver --> Aplikasi untuk mengakses berbagai basis data dan melakukan monitoring hingga pengubahan database yang dipilih
+12. PostgreSQL --> DBMS untuk melakukan pembuatan database dan penyimpanan data
+13. Geoserver --> perangkat lunak mapserver yang open source ditulis di dalam bahasa pemrograman JAVA yang memungkinkan pengguna untuk berbagi dan mengedit data geospatial
+14. QGIS --> Perangkat GIS open-source yang dapat digunakan untuk mengelola data spasial
+15. PostGIS --> Ekstensi untuk menghubungkan postgreSQL dengan QGIS dalam hal penyambungan database spasial
+16. Visual Studio Code --> Aplikasi code editor untuk pengembangan aplikasi/website
+___
+__Tangkapan layar komponen penting__
+___
+_Halaman landing_
+___
+![Screenshot 2024-06-14 020309](https://github.com/Azrilrozaqiarrosyid/PGWL-RESPONSI-UPDATE/assets/142295337/2c1cc9fe-bba7-422e-8949-714ba3f5379a)
+___
+_Halaman Login_
+___
+![Screenshot 2024-06-14 020410](https://github.com/Azrilrozaqiarrosyid/PGWL-RESPONSI-UPDATE/assets/142295337/54dda7ff-eb1c-4411-988b-8390affbd169)
+___
+_Halaman dashboard_
+___
+![Screenshot 2024-06-14 020438](https://github.com/Azrilrozaqiarrosyid/PGWL-RESPONSI-UPDATE/assets/142295337/da241865-bc56-4590-b52f-a633fbe08150)
+![Screenshot 2024-06-14 020505](https://github.com/Azrilrozaqiarrosyid/PGWL-RESPONSI-UPDATE/assets/142295337/cefbb075-c5c0-4501-ae97-d36cde58422e)
+___
+_Halaman webmap add data_
+___
+![Screenshot 2024-06-14 020541](https://github.com/Azrilrozaqiarrosyid/PGWL-RESPONSI-UPDATE/assets/142295337/cb1e38f2-e314-4212-8072-af577e49bc56)
+___
+_Halaman form input_
+___
+![Screenshot 2024-06-14 020627](https://github.com/Azrilrozaqiarrosyid/PGWL-RESPONSI-UPDATE/assets/142295337/512f4ce3-dc21-4846-a84b-54184e0e831e)
+___
+_Halaman edit data_
+___
+![Screenshot 2024-06-14 020657](https://github.com/Azrilrozaqiarrosyid/PGWL-RESPONSI-UPDATE/assets/142295337/b44bc448-2307-4c26-838d-e23629d1d1bc)
+![Screenshot 2024-06-14 020739](https://github.com/Azrilrozaqiarrosyid/PGWL-RESPONSI-UPDATE/assets/142295337/3bda9b35-2304-4d9f-aaec-d12b4af02fa1)
+___
+_Halaman table data point_
+___
+![Screenshot 2024-06-14 020815](https://github.com/Azrilrozaqiarrosyid/PGWL-RESPONSI-UPDATE/assets/142295337/f482607c-eabe-4f02-8581-6ad3cfaf6408)
+___
+_Halaman table data polyline_
+___
+![Screenshot 2024-06-14 020852](https://github.com/Azrilrozaqiarrosyid/PGWL-RESPONSI-UPDATE/assets/142295337/ada48975-2ba3-42c9-a352-f4f8ee76ab98)
+___
+_Halaman table data polygon_
+___
+![Screenshot 2024-06-14 020921](https://github.com/Azrilrozaqiarrosyid/PGWL-RESPONSI-UPDATE/assets/142295337/76fd8c16-c8ec-40b6-91a2-dc8274db9713)
+___
+_Halaman Info_
+___
+![Screenshot 2024-06-14 020945](https://github.com/Azrilrozaqiarrosyid/PGWL-RESPONSI-UPDATE/assets/142295337/42e88e43-2a99-473b-a88b-9fb5cf842eea)
+
+
+
+
+
+
+
+
+
+
+
+
+
