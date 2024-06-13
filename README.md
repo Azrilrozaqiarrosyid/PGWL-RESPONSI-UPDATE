@@ -75,7 +75,7 @@ ___
 CIVICTRACS merupakan website berbasis GIS yang dapat digunakan untuk melakukan pelaporan pada kerusakan penerangan jalan umum (PJU), jalan, serta bangunan milik pemerintah daerah. 
 Website ini dibangun berdasarkan masih banyaknya kasus kerusakan 3 hal tersebut yang tidak kunjung ditangai serta kurang efektifnya jika tidak adanya suatu sistem yang mampu melakukan perekaman data secara kolektif. Melalui webgis ini, konsep yang ditawarkan adalah administrator melakukan pelaporan dengan mengisi formulir data serta melakukan tag untuk titik pelaporannya. hasil ini kemudian disimpan di database PostgreSQL yang kompilasi datanya dapat ditampilkan di WebGIS tersebut. Dari pengumpulan data tersebut, harapannya terdapat pengembangan lanjutan yang mana terdapat administrator utama yang dapat memantau hasil pelaporan dari administrator kecil yang mengisi form.
 ___
-__Komponen Pembangun__
+## Komponen Pembangun
 ___
 Website ini dibangun oleh beberapa komponen:
 1. Laravel PHP --> framework PHP yang dapat digunakan untuk mengembangkan web yang berisi banyak modul. Terdiri dari konsep model-view-controller.
