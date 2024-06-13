@@ -30,11 +30,25 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('index') }}"><i class="fa-solid fa-house-user"></i> Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route ('table')}}"><i class="fa-solid fa-table-list"></i> Table</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Table
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('table-point') }}"><i 
+                                        class="fa-solid fa-table"></i> Table 
+                                    Point</a></li>
+                            <li><a class="dropdown-item" href="{{ route('table-polyline') }}"><i
+                                        class="fa-solid fa-table"></i> Table
+                                    Polyline</a></li>
+                            <li><a class="dropdown-item" href="{{ route('table-polygon') }}"><i
+                                        class="fa-solid fa-table"></i> Table
+                                    Polygon</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fa-solid fa-circle-info"></i> Info</a>
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#infoModal"><i class="fa-solid fa-circle-info"></i> Info</a>
                     </li>
 
 
@@ -59,6 +73,40 @@
             </div>
         </div>
     </nav>
+
+    <!-- Modal -->
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Info </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-sm">
+            <tr>
+                <th>NAMA</th>
+                <td> : </td>
+                <td>Azril</td>
+            </tr>
+            <tr>
+                <th>NIM</th>
+                <td> : </td>
+                <td>22/504560/SV/21660</td>
+            </tr>
+            <tr>
+                <th>KELAS</th>
+                <td> : </td>
+                <td>B</td>
+            </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     @yield('content')
     {{-- leaflet js --}}

@@ -63,5 +63,7 @@ Route::middleware('auth')->group(function () {
 
 // table
 Route::get('/table-point', [PointController::class, 'table'])-> name('table-point');
+Route::get('/table-polyline', [PolylineController::class, 'table'])-> name('table-polyline');
+Route::get('/table-polygon', [PolygonController::class, 'table'])-> name('table-polygon');
 
 require __DIR__.'/auth.php';

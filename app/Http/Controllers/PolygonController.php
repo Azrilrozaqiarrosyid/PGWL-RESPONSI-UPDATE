@@ -214,4 +214,14 @@ class PolygonController extends Controller
         //redirect to map
         return redirect()->back() ->with('success', 'Polygon deleted successfully');
     }
+
+    public function table()
+    {
+        $polygons = $this->polygon->polygons(); //terakhir lihat di modal
+        $data = [
+            'title' => 'Table Polygon',
+            'polygons' => $polygons
+        ];
+        return view('table-polygon', $data);
+    }
 }

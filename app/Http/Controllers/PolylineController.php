@@ -218,4 +218,14 @@ class PolylineController extends Controller
         //redirect to map
         return redirect()->back() ->with('success', 'Polyline deleted successfully');
     }
+
+    public function table()
+    {
+        $polylines = $this->polyline->polylines(); //terakhir lihat di modal
+        $data = [
+            'title' => 'Table Polyline',
+            'polylines' => $polylines
+        ];
+        return view('table-polyline', $data);
+    }
 }
